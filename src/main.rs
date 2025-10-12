@@ -13,12 +13,11 @@ const MID_COLOR: [u8; 4] = [100, 100, 100, 255];
 const HIGH_COLOR: [u8; 4] = [50, 50, 50, 255];
 
 const SEED: u32 = 0;
+const BORDERS: bool = false;
 
 fn main() {
     let generator = Perlin::new(SEED);
     let mut map = DynamicImage::new(SIZE, SIZE, ColorType::Rgba8);
-    
-    let borders = false;
 
     let is_border = |x: u32, offset: i64| {
         let x = (x as i64 + offset) as u32;
@@ -31,9 +30,9 @@ fn main() {
             map.put_pixel(
                 x,
                 y,
-                Rgba::<u8>(if borders && (is_border(x, 0) || is_border(y, 0)) {
+                Rgba::<u8>(if BORDERS && (is_border(x, 0) || is_border(y, 0)) {
                     GRID_COLOR
-                } else if borders
+                } else if BORDERS
                     && (is_border(x, -1) || is_border(y, -1) || is_border(x, 1) || is_border(y, 1))
                 {
                     LOW_COLOR
