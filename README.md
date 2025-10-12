@@ -31,9 +31,9 @@ there will be a file named ```map.png``` in the root directory.
 
 ### Time
 Usually, an open-world game map is created once manually  
-and doesn't need to be generated every time the game starts,  
+and doesn't need to be generated every time the game starts (unlike roguelikes),  
 so the program was made without speed optimizations.  
-The generation time is around ```0.3 seconds```.
+The generation time (SIZE = 1280, SIZE_K = 0.1) is around ```0.3 seconds```.
 
 ### Results
 #### SIZE = 1280; SIZE_K = 0.1
