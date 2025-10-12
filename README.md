@@ -1,7 +1,7 @@
 # WorldBuilder
 ## Lightweight and simple heightmap generator for open-world game landscapes!
 ### The program was made for generating the world of the game [Grokvil](https://grokvil.world/), which I'm working on.
-![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/1.png)
+![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/map.png)
 
 ### About generator
 
