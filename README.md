@@ -26,7 +26,7 @@ You can change the generation result by modifying the constants:
 (You can also change the cells colors through constants in the code.)
 
 ### Building
-```cargo run --release``` - After the work is completed,  
+```cargo run --release``` After the work is completed,  
 there will be a file named ```map.png``` in the root directory.
 
 ### Time
