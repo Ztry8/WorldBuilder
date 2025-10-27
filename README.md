@@ -1,5 +1,6 @@
 # WorldBuilder
 ## Lightweight and simple heightmap generator for open-world game landscapes!
+![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/map.png)
 
 ### About generator
 
