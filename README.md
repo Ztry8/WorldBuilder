@@ -20,7 +20,7 @@ You can change the generation result by modifying the constants:
 | SIZE    | The size of the world (map). | 
 | SIZE_K    | The smaller the SIZE_K, the fewer the mountains and lakes, but the bigger their size, and vice versa. | 
 | SEED     | Generation seed. | 
-| BORDERS | If true, the map is divided into 64x64 cell chunks with borders in the form of mountains. This is a requirement of the [Grokvil](https://grokvil.world/) engine.  | 
+| BORDERS | If true, the map is divided into 64x64 cell chunks with borders in the form of mountains. | 
 
 (You can also change the cells colors through constants in the code.)
 
