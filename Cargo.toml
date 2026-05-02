@@ -12,6 +12,8 @@ keywords = ["gamedev", "world", "generator", "heightmap", "openworld"]
 [dependencies]
 noise = "0.9"
 image = {version = "0.25.8", default-features = false, features = ["png"]}
+ron = "0.12.1"
+serde = { version = "1", features = ["derive"] }
 
 [profile.dev.package.'*']
 strip = true

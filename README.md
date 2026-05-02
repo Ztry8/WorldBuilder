@@ -14,15 +14,34 @@ The map is divided into 5 types of cells (1 cell = 1 pixel = 1 square meter):
 | Mountain | Gray  | 2 |
 | Cliff    | Dark gray  | 3 |  
 
-You can change the generation result by modifying the constants:
-| Constant        |   Meaning    | 
-| ------------- | ----- |
-| SIZE    | The size of the world (map). | 
-| SIZE_K    | The smaller the SIZE_K, the fewer the mountains and lakes, but the bigger their size, and vice versa. | 
-| SEED     | Generation seed. | 
-| BORDERS | If true, the map is divided into 64x64 cell chunks with borders in the form of mountains. | 
+### Configuration
 
-(You can also change the cells colors through constants in the code.)
+Generation is configured via `config.ron` in the root directory:
+| Field        |   Meaning    | 
+| ------------- | ----- |
+| `size`    | The size of the world (map). | 
+| `size_k`    | The smaller the value, the fewer the mountains and lakes, but the bigger their size, and vice versa. | 
+| `borders` | If true, the map is divided into 64x64 cell chunks with borders in the form of mountains. | 
+| `*_color` | RGBA colors for each cell type. |
+
+If `config.ron` is missing or invalid, default values are used automatically.
+
+The generation seed is derived from the current time, so every run produces a unique map.
+
+Example `config.ron`:
+```ron
+(
+    size: 1280,
+    size_k: 0.1,
+    grid_color: (230, 230, 230, 255),
+    water_color: (0, 0, 255, 255),
+    no_color: (0, 0, 0, 255),
+    low_color: (255, 255, 255, 255),
+    mid_color: (100, 100, 100, 255),
+    high_color: (50, 50, 50, 255),
+    borders: false,
+)
+```
 
 ### Building
 ```bash
@@ -37,10 +56,10 @@ there will be a file named ```map.png``` in the root directory.
 Usually, an open-world game map is created once manually  
 and doesn't need to be generated every time the game starts (unlike roguelikes),  
 so the program was made without speed optimizations.  
-The generation time (SIZE = 1280, SIZE_K = 0.1) is around ```0.3 seconds```.
+The generation time (size = 1280, size_k = 0.1) is around ```0.3 seconds```.
 
 ### Results
-#### SIZE = 1280; SIZE_K = 0.1
+#### size = 1280; size_k = 0.1
 ![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/1.png)
-#### SIZE = 1280; SIZE_K = 0.05
+#### size = 1280; size_k = 0.05
 ![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/2.png)
