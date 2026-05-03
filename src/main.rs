@@ -33,7 +33,7 @@ fn main() {
                     if let Some(tile_size) = cfg.borders
                         && (is_border(x, 0, tile_size) || is_border(y, 0, tile_size))
                     {
-                        cfg.grid_color
+                        cfg.mid_color
                     } else if let Some(tile_size) = cfg.borders
                         && (is_border(x, -1, tile_size)
                             || is_border(y, -1, tile_size)

@@ -6,13 +6,12 @@ use serde::Deserialize;
 pub struct Config {
     pub size: u32,
     pub size_k: f64,
-    pub grid_color: Color,
+    pub borders: Option<u32>,
     pub water_color: Color,
     pub no_color: Color,
     pub low_color: Color,
     pub mid_color: Color,
     pub high_color: Color,
-    pub borders: Option<u32>,
 }
 
 impl Default for Config {
@@ -20,13 +19,12 @@ impl Default for Config {
         Self {
             size: 1280,
             size_k: 0.1,
-            grid_color: [230, 230, 230, 255],
+            borders: None,
             water_color: [0, 0, 255, 255],
             no_color: [0, 0, 0, 255],
             low_color: [255, 255, 255, 255],
             mid_color: [100, 100, 100, 255],
             high_color: [50, 50, 50, 255],
-            borders: None,
         }
     }
 }

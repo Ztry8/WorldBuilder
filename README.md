@@ -37,7 +37,6 @@ Example `config.ron`:
     size: 1280,
     size_k: 0.1,
     borders: Some(64),
-    grid_color: (230, 230, 230, 255),
     water_color: (0, 0, 255, 255),
     no_color: (0, 0, 0, 255),
     low_color: (255, 255, 255, 255),
