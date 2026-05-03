@@ -1,6 +1,6 @@
 # WorldBuilder
-[![GitHub last commit](https://img.shields.io/github/last-commit/ztry8/worldbuilder)](https://github.com/worldbuilder/commits)
-[![License](https://img.shields.io/github/license/worldbuilder)](https://github.com/worldbuilder/blob/main/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ztry8/worldbuilder)](https://github.com/ztry8/worldbuilder/commits)
+[![License](https://img.shields.io/github/license/ztry8/worldbuilder)](https://github.com/ztry8/worldbuilder/blob/main/LICENSE)
 
 ## Lightweight and simple heightmap generator for open-world game landscapes!
 ![screenshot](https://github.com/Ztry8/WorldBuilder/blob/main/maps/map.png)

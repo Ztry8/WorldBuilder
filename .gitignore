@@ -15,5 +15,5 @@ target
 
 # Other
 .DS_Store
-map.png
+*.png
 config.ron
