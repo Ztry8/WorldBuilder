@@ -8,10 +8,12 @@ fn main() {
     let cfg = config::get_config();
 
     let generator = Perlin::new(
-        SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .unwrap()
-            .subsec_nanos(),
+        cfg.seed.unwrap_or(
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .subsec_nanos(),
+        ),
     );
 
     let mut map = DynamicImage::new(cfg.size, cfg.size, ColorType::Rgba8);

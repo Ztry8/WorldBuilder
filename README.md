@@ -23,8 +23,9 @@ Generation is configured via `config.ron` in the root directory:
 | Field        |   Meaning    | 
 | ------------- | ----- |
 | `size`    | The size of the world (map). | 
-| `size_k`    | The smaller the value, the fewer the mountains and lakes, but the bigger their size, and vice versa. | 
+| `size_k`  | The smaller the value, the fewer the mountains and lakes, but the bigger their size, and vice versa. | 
 | `borders` | If `Some(tile)`, the map is divided into `tile`x`tile` cell chunks with borders in the form of mountains. | 
+| `seed`    | Generation seed. If `Some(value)`, the map will always be generated identically for the same seed. If `None`, the seed is based on the current time, producing a unique map each run. | 
 | `*_color` | RGBA colors for each cell type. |
 
 If `config.ron` is missing or invalid, default values are used automatically.
@@ -37,6 +38,7 @@ Example `config.ron`:
     size: 1280,
     size_k: 0.1,
     borders: Some(64),
+    seed: None,
     water_color: (0, 0, 255, 255),
     no_color: (0, 0, 0, 255),
     low_color: (255, 255, 255, 255),
