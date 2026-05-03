@@ -16,10 +16,12 @@ fn main() {
 
     let mut map = DynamicImage::new(cfg.size, cfg.size, ColorType::Rgba8);
 
-    let is_border = |x: u32, offset: i64| {
+    let is_border = |x: u32, offset: i64, tile_size| {
         let x = (x as i64 + offset) as u32;
 
-        x == 0 || x % 64 == 0 || (x >= 63 && (x - 63) % 64 == 0)
+        x == 0
+            || x % tile_size == 0
+            || (x >= (tile_size - 1) && (x - (tile_size - 1)) % tile_size == 0)
     };
 
     for x in 0..cfg.size {
@@ -27,28 +29,35 @@ fn main() {
             map.put_pixel(
                 x,
                 y,
-                Rgba::<u8>(if cfg.borders && (is_border(x, 0) || is_border(y, 0)) {
-                    cfg.grid_color
-                } else if cfg.borders
-                    && (is_border(x, -1) || is_border(y, -1) || is_border(x, 1) || is_border(y, 1))
-                {
-                    cfg.low_color
-                } else {
-                    let height = generator.get([x as f64 * cfg.size_k, y as f64 * cfg.size_k]);
-                    let c = (height * 128.0 + 128.0) as u8;
-
-                    if c < 10 {
-                        cfg.water_color
-                    } else if c < 200 {
-                        cfg.no_color
-                    } else if c < 230 {
+                Rgba::<u8>(
+                    if let Some(tile_size) = cfg.borders
+                        && (is_border(x, 0, tile_size) || is_border(y, 0, tile_size))
+                    {
+                        cfg.grid_color
+                    } else if let Some(tile_size) = cfg.borders
+                        && (is_border(x, -1, tile_size)
+                            || is_border(y, -1, tile_size)
+                            || is_border(x, 1, tile_size)
+                            || is_border(y, 1, tile_size))
+                    {
                         cfg.low_color
-                    } else if c < 250 {
-                        cfg.mid_color
                     } else {
-                        cfg.high_color
-                    }
-                }),
+                        let height = generator.get([x as f64 * cfg.size_k, y as f64 * cfg.size_k]);
+                        let c = (height * 128.0 + 128.0) as u8;
+
+                        if c < 10 {
+                            cfg.water_color
+                        } else if c < 200 {
+                            cfg.no_color
+                        } else if c < 230 {
+                            cfg.low_color
+                        } else if c < 250 {
+                            cfg.mid_color
+                        } else {
+                            cfg.high_color
+                        }
+                    },
+                ),
             );
         }
     }

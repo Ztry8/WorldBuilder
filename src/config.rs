@@ -12,7 +12,7 @@ pub struct Config {
     pub low_color: Color,
     pub mid_color: Color,
     pub high_color: Color,
-    pub borders: bool,
+    pub borders: Option<u32>,
 }
 
 impl Default for Config {
@@ -26,7 +26,7 @@ impl Default for Config {
             low_color: [255, 255, 255, 255],
             mid_color: [100, 100, 100, 255],
             high_color: [50, 50, 50, 255],
-            borders: false,
+            borders: None,
         }
     }
 }
