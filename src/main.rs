@@ -37,10 +37,12 @@ fn main() {
                     {
                         cfg.mid_color
                     } else if let Some(tile_size) = cfg.borders
-                        && (is_border(x, -1, tile_size)
-                            || is_border(y, -1, tile_size)
-                            || is_border(x, 1, tile_size)
-                            || is_border(y, 1, tile_size))
+                        && ([1, 2, 3].iter().any(|&d| {
+                            is_border(x, d, tile_size)
+                                || is_border(y, d, tile_size)
+                                || is_border(x, -d, tile_size)
+                                || is_border(y, -d, tile_size)
+                        }))
                     {
                         cfg.low_color
                     } else {
